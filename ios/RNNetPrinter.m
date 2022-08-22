@@ -151,8 +151,8 @@ RCT_EXPORT_METHOD(connectPrinter:(NSString *)host
 
 RCT_EXPORT_METHOD(printRawData:(NSString *)text
                   printerOptions:(NSDictionary *)options
-                  fail:(RCTResponseSenderBlock)errorCallback
-                  success:(RCTResponseSenderBlock)successCallback) {
+//success:(RCTResponseSenderBlock)successCallback
+                  fail:(RCTResponseSenderBlock)errorCallback) {
     @try {
         NSNumber* beepPtr = [options valueForKey:@"beep"];
         NSNumber* cutPtr = [options valueForKey:@"cut"];
@@ -166,7 +166,7 @@ RCT_EXPORT_METHOD(printRawData:(NSString *)text
         [[PrinterSDK defaultPrinterSDK] sendHex:text];
         beep ? [[PrinterSDK defaultPrinterSDK] beep] : nil;
         cut ? [[PrinterSDK defaultPrinterSDK] cutPaper] : nil;
-        successCallback(@[@"print successful"]);
+//         successCallback(@[@"print successful"]);
         
     } @catch (NSException *exception) {
         errorCallback(@[exception.reason]);
