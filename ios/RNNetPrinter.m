@@ -166,6 +166,7 @@ RCT_EXPORT_METHOD(printRawData:(NSString *)text
         [[PrinterSDK defaultPrinterSDK] sendHex:text];
         beep ? [[PrinterSDK defaultPrinterSDK] beep] : nil;
         cut ? [[PrinterSDK defaultPrinterSDK] cutPaper] : nil;
+//         mr.Thanh 22.08.2022
 //         successCallback(@[@"print successful"]);
         
     } @catch (NSException *exception) {
